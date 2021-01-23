@@ -155,3 +155,6 @@ function Results() {
 all_of_imgs.addEventListener('click',User_selection);
 
 button_result.addEventListener('click',Results);
+
+
+
