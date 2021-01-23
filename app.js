@@ -144,7 +144,8 @@ function Results() {
 
             
             result.appendChild(finalresult);
-        }       
+        }
+     showChart();      
     }
     
 // function Rounds(event) {
@@ -158,3 +159,58 @@ button_result.addEventListener('click',Results);
 
 
 
+function showChart() {
+    var votes_arr=[];
+    var view_arr=[];
+
+    for (var i = 0; i < Images_arr.length; i++) {
+       votes_arr.push(vote);
+       view_arr.push(view);
+
+    }
+
+    var ctx = document.getElementById('myChart').getContext('2d');
+    var chart = new Chart(ctx, {
+        type: 'bar',
+
+
+    
+        data: {
+            labels: Name_of_Images,
+            datasets: [{
+                label: 'votes',
+                backgroundColor: 'rgb(255, 99, 132)',
+                borderColor: 'rgb(255, 99, 132)',
+                data: votes_arr,
+                
+
+
+            },
+            {
+                label: 'Your view',
+                backgroundColor: 'rgb(0, 0, 0)',
+                borderColor: 'rgb(0, 0, 0)',
+                data: view_arr,
+            }
+        ]
+        },
+
+    
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        max: 10,
+                        min: 0,
+                        beginAtZero: 0,
+                        stepSize: 1,
+                    }
+                }],
+
+            }
+        }
+    });
+   
+
+
+}
